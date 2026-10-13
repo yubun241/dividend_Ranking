@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>配当利回りランキング</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>配当利回りランキング</h1>
+  <p class="sub">掛け金(投資予算)のランクを指定すると、その予算で1単元買える銘柄を配当利回り順に表示します。</p>
+</header>
+
+<form id="controls" class="controls" onsubmit="return false;">
+  <label>掛け金ランク
+    <select id="rank">
+      <option value="50000">ランク1: 〜5万円</option>
+      <option value="100000">ランク2: 〜10万円</option>
+      <option value="300000" selected>ランク3: 〜30万円</option>
+      <option value="500000">ランク4: 〜50万円</option>
+      <option value="1000000">ランク5: 〜100万円</option>
+      <option value="3000000">ランク6: 〜300万円</option>
+      <option value="">制限なし(全銘柄)</option>
+    </select>
+  </label>
+  <label>または予算を直接指定(円)
+    <input type="number" id="budget" min="0" step="10000" placeholder="例: 250000">
+  </label>
+  <label>市場
+    <select id="market">
+      <option value="all">全市場</option>
+      <option value="東証PRM">東証プライム</option>
+      <option value="東証STD">東証スタンダード</option>
+      <option value="東証GRT">東証グロース</option>
+      <option value="reit">REIT・その他</option>
+    </select>
+  </label>
+  <label>利回り下限(%)
+    <input type="number" id="minYield" min="0" step="0.1" value="0">
+  </label>
+  <label>銘柄名・コード検索
+    <input type="text" id="query" placeholder="例: 三菱 / 8306">
+  </label>
+  <label>表示件数
+    <input type="number" id="limit" min="1" max="1000" value="50">
+  </label>
+</form>
+
+<p class="meta" id="meta">データを読み込み中...</p>
+
+<div class="table-wrap">
+<table>
+  <thead>
+    <tr>
+      <th>順位</th><th>コード</th><th>銘柄名</th><th>市場</th>
+      <th class="num">株価</th><th class="num">1株配当</th><th class="num">利回り</th>
+      <th class="num">1単元の金額</th><th class="num">予算内で買える数</th><th class="num">投資額</th><th class="num">年間配当(予想)</th>
+      <th>決算</th>
+    </tr>
+  </thead>
+  <tbody id="rows"></tbody>
+</table>
+</div>
+
+<footer>
+  <p>データ出典: Yahoo!ファイナンス「配当利回り(会社予想)ランキング」。配当は会社予想値で、投資判断は自己責任でお願いします。</p>
+  <p>売買単位は通常100株、REIT(投資法人)は1口として計算しています。ETF等は実際の単位と異なる場合があります。</p>
+  <p>データはGitHub Actionsにより平日の取引終了後に自動更新されます。</p>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>
