@@ -24,3 +24,23 @@ th { background:var(--bg); font-weight:600; position:sticky; top:0; }
 a { color:inherit; }
 small { color:var(--muted); }
 .meta .error { color:#c0392b; }
+h2 { font-size:1.15rem; margin:18px 0 8px; }
+.portfolio { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px; margin:14px 0; }
+.portfolio .table-wrap { border:0; border-radius:0; }
+.pf-head { display:flex; flex-wrap:wrap; gap:12px; align-items:center; }
+.pf-head h2 { margin:0; }
+.badge { display:inline-block; min-width:1.6em; padding:1px 7px; border-radius:999px; background:var(--accent); color:#fff; font-size:.8rem; text-align:center; }
+.inline { display:flex; align-items:center; gap:6px; font-size:.88rem; }
+button.secondary.small { padding:5px 10px; font-size:.82rem; border:1px solid var(--accent); background:transparent; color:var(--accent); border-radius:6px; cursor:pointer; margin-left:auto; }
+.cards { display:grid; grid-template-columns:repeat(auto-fit, minmax(170px, 1fr)); gap:10px; margin:12px 0 6px; }
+.card { background:var(--bg); border:1px solid var(--line); border-radius:8px; padding:10px 12px; }
+.card .label { font-size:.75rem; color:var(--muted); }
+.card .value { font-size:1.3rem; font-weight:700; margin:2px 0; font-variant-numeric:tabular-nums; }
+.card.accent { border-color:var(--accent); }
+.card.accent .value { color:var(--accent); }
+.over { color:#c0392b; }
+td.sel { text-align:center; }
+tr.selected { background:color-mix(in srgb, var(--accent) 10%, transparent); }
+input.units { width:64px; padding:4px 6px; border:1px solid var(--line); border-radius:5px; background:var(--bg); color:var(--fg); text-align:right; }
+button.remove { border:0; background:transparent; color:var(--muted); font-size:1.1rem; cursor:pointer; }
+button.remove:hover { color:#c0392b; }

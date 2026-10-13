@@ -47,13 +47,34 @@
   </label>
 </form>
 
+<section class="portfolio">
+  <div class="pf-head">
+    <h2>選定した銘柄の配当計算 <span class="badge" id="pfCount">0</span></h2>
+    <label class="inline"><input type="checkbox" id="nisa"> NISA口座(非課税)で計算</label>
+    <button type="button" id="pfClear" class="secondary small">すべて外す</button>
+  </div>
+  <div id="pfTotal"></div>
+  <div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>コード</th><th>銘柄名</th><th class="num">株価</th><th class="num">利回り</th>
+        <th class="num">購入数</th><th class="num">投資額</th><th class="num">年間配当(税引前)</th><th class="num">税金</th><th class="num">手取り配当</th><th></th>
+      </tr>
+    </thead>
+    <tbody id="pfBody"></tbody>
+  </table>
+  </div>
+</section>
+
+<h2>ランキング</h2>
 <p class="meta" id="meta">データを読み込み中...</p>
 
 <div class="table-wrap">
 <table>
   <thead>
     <tr>
-      <th>順位</th><th>コード</th><th>銘柄名</th><th>市場</th>
+      <th>選定</th><th>順位</th><th>コード</th><th>銘柄名</th><th>市場</th>
       <th class="num">株価</th><th class="num">1株配当</th><th class="num">利回り</th>
       <th class="num">1単元の金額</th><th class="num">予算内で買える数</th><th class="num">投資額</th><th class="num">年間配当(予想)</th>
       <th>決算</th>
@@ -66,6 +87,7 @@
 <footer>
   <p>データ出典: Yahoo!ファイナンス「配当利回り(会社予想)ランキング」。配当は会社予想値で、投資判断は自己責任でお願いします。</p>
   <p>売買単位は通常100株、REIT(投資法人)は1口として計算しています。ETF等は実際の単位と異なる場合があります。</p>
+  <p>税金は配当所得の源泉徴収税率20.315%(所得税15.315%+住民税5%)で計算しています。選定内容はこのブラウザに保存されます。</p>
   <p>データはGitHub Actionsにより平日の取引終了後に自動更新されます。</p>
 </footer>
 <script src="app.js"></script>
