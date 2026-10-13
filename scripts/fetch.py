@@ -1,5 +1,5 @@
 """
-Yahoo!ファイナンスの配当利回りランキングを取得し docs/data/stocks.json に書き出す。
+Yahoo!ファイナンスの配当利回りランキングを取得し data/stocks.json に書き出す。
 GitHub Actions から定期実行される。ローカルでも `python scripts/fetch.py` で実行可。
 """
 from __future__ import annotations
@@ -13,7 +13,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 import scraper  # noqa: E402
 
-OUT = Path(__file__).resolve().parents[1] / "docs" / "data" / "stocks.json"
+OUT = Path(__file__).resolve().parents[1] / "data" / "stocks.json"
 JST = dt.timezone(dt.timedelta(hours=9))
 
 

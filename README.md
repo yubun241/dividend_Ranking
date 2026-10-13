@@ -1,7 +1,7 @@
 # 配当利回りランキング (GitHub Pages 版)
 
 Yahoo!ファイナンスの「配当利回り(会社予想)ランキング」を GitHub Actions が定期的にスクレイピングして
-`docs/data/stocks.json` に保存し、GitHub Pages の静的ページがそのデータを読み込んで
+`data/stocks.json` に保存し、GitHub Pages の静的ページがそのデータを読み込んで
 掛け金(投資予算)ランク別のランキングを表示します。サーバーも Python 環境も不要です。
 
 ## 仕組み
@@ -10,7 +10,7 @@ Yahoo!ファイナンスの「配当利回り(会社予想)ランキング」を
 GitHub Actions (平日 16:30 JST)
   └─ scripts/fetch.py ── Yahoo!ファイナンスを取得 ──▶ docs/data/stocks.json をコミット
 GitHub Pages
-  └─ docs/index.html + app.js ── stocks.json を読み込み、ブラウザ上で絞り込み・並べ替え
+  └─ index.html + app.js ── stocks.json を読み込み、ブラウザ上で絞り込み・並べ替え
 ```
 
 ## 公開手順 (初回のみ)
@@ -26,7 +26,7 @@ GitHub Pages
 
 3. リポジトリの **Settings → Pages** で
    - Source: `Deploy from a branch`
-   - Branch: `main` / フォルダ: `/docs`
+   - Branch: `main` / フォルダ: `/ (root)`
    を選んで Save します。
 4. **Settings → Actions → General → Workflow permissions** で
    `Read and write permissions` を選んで Save します (Actions がデータをコミットするために必要)。
@@ -45,7 +45,7 @@ GitHub Pages
 ## ローカルで確認する場合
 
 ```bash
-cd docs && python3 -m http.server 8000   # http://localhost:8000
+python3 -m http.server 8000   # http://localhost:8000
 ```
 
 データを手動で更新するには:
