@@ -1,0 +1,2 @@
+# dividend_Ranking
+株価の配当金をランキングするwebapp
